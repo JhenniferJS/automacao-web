@@ -6,13 +6,15 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.security.spec.KeySpec;
 
 public class TestWebStep {
 
@@ -76,7 +78,9 @@ public class TestWebStep {
 
     @Quando("buscar pelo produto {string}")
     public void buscar_pelo_produto(String produto) {
-
+        WebElement element = driver.findElement(By.xpath("//input[@class='search_query form-control ac_input']"));
+        element.click();
+        element.sendKeys(produto, Keys.ENTER);
     }
 
     @Quando("clicar no botão contact us")
@@ -101,12 +105,12 @@ public class TestWebStep {
 
     @Então("deverá exibir uma lista de produtos")
     public void devera_exibir_uma_lista_de_produtos() {
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='center_column col-xs-12 col-sm-9']//span[contains(., 'dress')]")));
     }
 
     @Então("deverá exibir uma mensagem de erro")
     public void devera_exibir_uma_mensagem_de_erro() {
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='alert alert-warning'][contains(., 'teste')]")));
     }
 
     @Então("deverá ser carregada a pagina inicial do site")
