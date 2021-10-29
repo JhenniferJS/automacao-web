@@ -7,6 +7,7 @@ Funcionalidade: teste website
     E clicar no botão para adicionar ao carrinho
     Então um modal de confirmação deverá abrir
 
+
   Cenário: pesquisar produto
     Dado que estou no site de compras
     Quando buscar pelo produto "dress"

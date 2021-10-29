@@ -1,10 +1,10 @@
 package br.inatel.s206.test.step;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,7 +37,7 @@ public class TestWebStep {
 
     @Dado("que estou no site de compras")
     public void que_estou_no_site_de_compras() {
-        driver.get("automationpractice.com/index.php");
+        driver.get("http://automationpractice.com/index.php");
         wait.until(ExpectedConditions.titleIs("My Store"));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='nav']//div[@class='row']")));
     }
@@ -59,7 +59,7 @@ public class TestWebStep {
 
     @Quando("clicar em T-shirt")
     public void clicar_em_T_shirt() {
-        WebElement element = driver.findElement(By.xpath("//div[@id='block_top_menu']//a[@title='T-shirts']"));
+        WebElement element = driver.findElement(By.xpath("//*[@id='block_top_menu']/ul/li[3]/a"));
         element.click();
     }
 
