@@ -30,7 +30,7 @@ Funcionalidade: teste website
   # cenario que ira falhar no teste
   Cenário: fazer sign in
     Dado que estou no site de compras
-    E cliquei no botão sign in
+    E cliquei no menu sign in
     Quando colocar usuario e senha
     E clicar no botão sign in
     Então deverá ser exibida a tela da minha conta
